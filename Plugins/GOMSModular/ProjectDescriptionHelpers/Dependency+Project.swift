@@ -19,6 +19,10 @@ public extension TargetDependency.Shared {
         target: "DesignSystem",
         path: .relativeToRoot("Projects/Shared/DesignSystem")
     )
+    static let ThirdPartyLib = TargetDependency.project(
+        target: "ThirdPartyLib",
+        path: .relativeToRoot("Projects/Shared/ThirdPartyLib")
+    )
 }
 
 public extension TargetDependency.Core {

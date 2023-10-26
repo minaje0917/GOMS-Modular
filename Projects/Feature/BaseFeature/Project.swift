@@ -7,6 +7,7 @@ let project = Project.makeModule(
     platform: .iOS,
     product: .staticFramework ,
     dependencies: [
-        .Shared.DesignSystem
+        .Shared.DesignSystem,
+        .Shared.ThirdPartyLib
     ]
 )
