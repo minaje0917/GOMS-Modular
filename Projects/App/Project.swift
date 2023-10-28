@@ -7,7 +7,8 @@ let project = Project.makeModule(
     platform: .iOS,
     product: .app,
     dependencies: [
-        .Feature.BaseFeature
+        .Feature.BaseFeature,
+        .Feature.IntroFeature
     ],
     resources: ["Resources/**"],
     infoPlist: .file(path: "Support/Info.plist")

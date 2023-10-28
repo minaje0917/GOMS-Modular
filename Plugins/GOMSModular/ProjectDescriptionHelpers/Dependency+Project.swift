@@ -12,6 +12,10 @@ public extension TargetDependency.Feature {
         target: "BaseFeature",
         path: .relativeToRoot("Projects/Feature/BaseFeature")
     )
+    static let IntroFeature = TargetDependency.project(
+        target: "IntroFeature",
+        path: .relativeToRoot("Projects/Feature/IntroFeature")
+    )
 }
 
 public extension TargetDependency.Shared {
