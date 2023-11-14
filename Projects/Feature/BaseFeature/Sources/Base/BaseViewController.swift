@@ -4,23 +4,23 @@ import RxSwift
 import Then
 import DesignSystem
 
-class BaseViewController<T>: UIViewController {
-    let reactor: T
-    var disposeBag = DisposeBag()
-    let bounds = UIScreen.main.bounds
+open class BaseViewController<T>: UIViewController {
+    public let reactor: T
+    public var disposeBag = DisposeBag()
+    public let bounds = UIScreen.main.bounds
     
-    init(_ reactor: T) {
+    public init(_ reactor: T) {
         self.reactor = reactor
         super .init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = DesignSystemAsset.Color.black.color
+        self.navigationController?.navigationBar.tintColor = DesignSystemAsset.Color.gomsBlack.color
         view.backgroundColor = DesignSystemAsset.Color.bg.color
         self.navigationItem.backButtonTitle = ""
         addView()
@@ -28,25 +28,25 @@ class BaseViewController<T>: UIViewController {
         bind(reactor: reactor)
     }
     
-    func addView() {
+    open func addView() {
         
     }
     
-    func setLayout() {
+    open func setLayout() {
         
     }
     
-    func bind(reactor: T) {
+    open func bind(reactor: T) {
         bindView(reactor: reactor)
         bindAction(reactor: reactor)
         bindState(reactor: reactor)
     }
     
-    func bindView(reactor: T) {}
-    func bindAction(reactor: T) {}
-    func bindState(reactor: T) {}
+    open func bindView(reactor: T) {}
+    open func bindAction(reactor: T) {}
+    open func bindState(reactor: T) {}
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 

@@ -5,7 +5,7 @@ import MyPlugin
 let project = Project.makeModule(
     name: "BaseFeature",
     platform: .iOS,
-    product: .staticFramework ,
+    product: .staticFramework,
     dependencies: [
         .Shared.DesignSystem,
         .Shared.ThirdPartyLib
