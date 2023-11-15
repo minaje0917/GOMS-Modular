@@ -11,7 +11,7 @@ import DesignSystem
 class IntroViewController: BaseViewController<IntroReactor> {
     override func viewDidLoad() {
         super.viewDidLoad()
-//        gauthButtonSetUp()
+        gauthButtonSetUp()
     }
     
     private let logoImage = UIImageView().then {
@@ -61,15 +61,15 @@ class IntroViewController: BaseViewController<IntroReactor> {
         $0.titleLabel?.font = DesignSystemFontFamily.SFProText.medium.font(size: 12)
     }
     
-//    private func gauthButtonSetUp() {
-//        gauthSignInButton.prepare(
-//            clientID: GAuthInfo.clientID,
-//            redirectURI: GAuthInfo.redirectURI,
-//            presenting: self
-//        ) { code in
-//            self.viewModel.action.onNext(.gauthSigninCompleted(code: code))
-//        }
-//    }
+    private func gauthButtonSetUp() {
+        gauthSignInButton.prepare(
+            clientID: GAuthInfo.clientID,
+            redirectURI: GAuthInfo.redirectURI,
+            presenting: self
+        ) { code in
+            self.reactor.action.onNext(.gauthSigninCompleted(code: code))
+        }
+    }
         
     override func addView() {
         [

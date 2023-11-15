@@ -14,7 +14,7 @@ class IntroReactor: Reactor, Stepper{
     // MARK: - Reactor
     
     enum Action {
-        
+        case gauthSigninCompleted(code: String)
     }
 
     enum Mutation {
@@ -35,11 +35,15 @@ class IntroReactor: Reactor, Stepper{
 extension IntroReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case let .gauthSigninCompleted(code):
+            return gauthSigninCompleted(code: code)
         }
     }
 }
 
 // MARK: - Method
 private extension IntroReactor {
-    
+    private func gauthSigninCompleted(code: String) -> Observable<Mutation> {
+        return .empty()
+    }
 }
